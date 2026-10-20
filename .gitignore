@@ -7,3 +7,5 @@ venv/
 *.zip
 *.onnx
 *.index
+
+*.npz

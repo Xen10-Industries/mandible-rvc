@@ -25,9 +25,9 @@ def main() -> int:
     train_parser.add_argument("--output-dir", "-o", required=True, help="Directory to save the resulting .onnx and .index files")
     train_parser.add_argument("--epochs", "-e", type=int, default=200, help="Number of training epochs (default: 200)")
     train_parser.add_argument("--batch-size", "-b", type=int, default=8, help="Batch size (default: 8)")
-    train_parser.add_argument("--f0-method", default="rmvpe", choices=["rmvpe", "harvest", "pm"], help="Pitch tracking algorithm")
-    train_parser.add_argument("--sample-rate", "-sr", type=int, default=40000, choices=[40000, 48000], help="Model sample rate")
-    train_parser.add_argument("--device", default="auto", help="Training accelerator device ('auto', 'cuda:0', 'cpu')")
+    train_parser.add_argument("--f0-method", default="hybrid", help="Pitch tracking algorithm ('hybrid', 'rmvpe', 'harvest', 'crepe', 'pm')")
+    train_parser.add_argument("--sample-rate", "-sr", type=int, default=40000, help="Model sample rate (e.g. 40000, 44100, 48000)")
+    train_parser.add_argument("--device", default="auto", help="Training accelerator device ('auto', 'cuda:0', 'dml', 'cpu')")
 
     args = parser.parse_args()
     if args.command == "train":
