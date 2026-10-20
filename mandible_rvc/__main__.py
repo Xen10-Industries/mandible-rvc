@@ -2,10 +2,14 @@
 from __future__ import annotations
 
 import argparse
-import json
+import os
 import sys
 
-from .trainer import run_training
+if __package__ is None or __package__ == "":
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from mandible_rvc.trainer import run_training
+else:
+    from .trainer import run_training
 
 
 def main() -> int:
